@@ -1,5 +1,13 @@
 # Mega Humanization Guide
 
+🌍 **Languages / Diller:** English (this file) · [**Türkçe** →](README.tr.md)
+
+> **⚙️ How to use these files — give them to an AI.** This repo is written *to be
+> fed to an AI* (ChatGPT, Claude, Gemini, etc.). Paste `MEGA_HUMANIZATION_GUIDE.md`
+> — especially §4 (tell catalog), §10 (drop-in instruction block) and §11 (QA gate)
+> — into the model's system/instruction prompt, hand it your draft, and it will
+> reproduce the full humanization pass. You are the director; the AI is the editor.
+
 A complete, reusable methodology for turning AI-drafted prose into writing that
 reads as genuinely human — without destroying meaning, structure, or quality.
 
