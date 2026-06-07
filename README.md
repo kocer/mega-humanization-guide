@@ -1,51 +1,75 @@
-# Mega Humanization Guide
+# Mega Humanization Rehberi
 
-🌍 **Languages / Diller:** English (this file) · [**Türkçe** →](README.tr.md)
+🌍 **Diller / Languages:** Türkçe (bu dosya) · [**English** →](README.en.md)
 
-> **⚙️ How to use these files — give them to an AI.** This repo is written *to be
-> fed to an AI* (ChatGPT, Claude, Gemini, etc.). Paste `MEGA_HUMANIZATION_GUIDE.md`
-> — especially §4 (tell catalog), §10 (drop-in instruction block) and §11 (QA gate)
-> — into the model's system/instruction prompt, hand it your draft, and it will
-> reproduce the full humanization pass. You are the director; the AI is the editor.
+> **⚙️ Bu dosyalar nasıl kullanılır — bir AI'ye verin.** Bu repo, *bir yapay zekâya
+> verilmek üzere* yazıldı (ChatGPT, Claude, Gemini vb.). `MEGA_HUMANIZATION_GUIDE.md`
+> dosyasını — özellikle §4 (tell kataloğu), §10 (hazır talimat bloğu) ve §11 (QA
+> kontrol listesi) — modelin sistem/talimat promptuna yapıştırın, taslağınızı verin;
+> AI tüm humanization pasını sizin için tekrar üretsin. Yönetmen sizsiniz, editör AI.
+>
+> **Not:** rehberin gövdesi (`MEGA_HUMANIZATION_GUIDE.md`) İngilizcedir — bilerek,
+> çünkü AI'ler İngilizce talimatı en iyi uygular ve open-source erişimi geniş olsun.
+> Türkçe'ye özgü teknikler rehberin §9.1 ekinde duruyor.
 
-A complete, reusable methodology for turning AI-drafted prose into writing that
-reads as genuinely human — without destroying meaning, structure, or quality.
+AI tarafından yazılmış metni, anlamı/yapıyı/kaliteyi bozmadan gerçekten insan
+elinden çıkmış gibi okutmak için eksiksiz, tekrar kullanılabilir bir metodoloji.
 
-Hand the guide to an AI as a system/instruction prompt and it can reproduce a
-high-quality humanization pass: detection-signal theory, a catalog of AI "tells"
-with real before→after fixes, burstiness engineering, a local measurement harness,
-targeted de-flagging, controlled imperfection, and source integrity. Language-
-agnostic core plus a Turkish-specific appendix.
+Rehberi bir AI'ye sistem/talimat promptu olarak verdiğinizde yüksek kaliteli bir
+humanization pası üretebilir: tespit-sinyali teorisi, gerçek önce→sonra örnekleriyle
+bir AI "tell" kataloğu, burstiness mühendisliği, yerel ölçüm aracı, hedefli
+de-flagging, kontrollü kusur ve kaynak bütünlüğü. Dilden bağımsız çekirdek + Türkçe'ye
+özel ek.
 
-## Contents
+## İçindekiler
 
-- **[`MEGA_HUMANIZATION_GUIDE.md`](MEGA_HUMANIZATION_GUIDE.md)** — the full guide.
-  Start at §0 (how to use), §1–§2 (mental model + voice calibration), §4 (the tell
-  catalog), §10 (drop-in AI instruction block), §11 (QA gate).
-- **[`humanizer_metrics.py`](humanizer_metrics.py)** — offline proxy metrics
-  (sentence-length burstiness, coefficient of variation, type-token ratio). Does
-  **not** measure perplexity — it's a structural smell-test, not a verdict.
+- **[`MEGA_HUMANIZATION_GUIDE.md`](MEGA_HUMANIZATION_GUIDE.md)** — tam rehber
+  (İngilizce). §0 (nasıl kullanılır), §1–§2 (zihinsel model + ses kalibrasyonu),
+  §4 (tell kataloğu), §10 (hazır AI talimat bloğu), §11 (QA kapısı) ile başlayın.
+- **[`humanizer_metrics.py`](humanizer_metrics.py)** — offline vekil metrikler
+  (cümle uzunluğu burstiness'i, değişim katsayısı CV, tür-belirteç oranı TTR).
+  Perplexity'yi **ölçmez** — yapısal bir koku testidir, kesin hüküm değil.
 
-## Quick start
+## Hızlı başlangıç
 
-Measure a text and compare it against a real human sample from the same genre:
+Bir metni ölç ve aynı türden gerçek bir insan örneğiyle karşılaştır:
 
 ```bash
-python3 humanizer_metrics.py target.txt --baseline human_sample.txt
+python3 humanizer_metrics.py hedef.txt --baseline insan_ornegi.txt
 ```
 
-Then drive an AI through the loop in §3 of the guide, using §4 as hard rules and
-§11 as the exit gate.
+Sonra rehberdeki §3 döngüsünü bir AI'ye uygulat: §4'ü katı kural, §11'i çıkış
+kapısı olarak kullan.
 
-## Honest disclaimer
+## Yöntem özeti (rehberin damıtılmış hâli)
 
-No automated step makes text *guaranteed* to pass any AI detector — dense academic
-prose is naturally low-burstiness and can be flagged even when human-written.
-Detector scores are evidence, not proof, in both directions. The only guaranteed
-humanization is a human editing a few sentences in their own voice. The guide says
-so repeatedly, on purpose.
+1. **Ses kalibrasyonu (§2):** örnek metinlerden parmak izi çıkar — cümle uzunluğu
+   değişkenliği, bağlaçlar, alıntı giriş kalıbı, fiil dağarcığı, paragraf
+   açılış/kapanış alışkanlıkları. Kusurlarını da taklit et; ama AI-telli kusurları
+   taklit etme.
+2. **İki-eksen modeli (§1):** dedektörler **perplexity** (öngörülebilirlik) ve
+   **burstiness** (ritim değişkenliği) ölçer. Perplexity'yi öngörülemez/özgül
+   ifadelerle elle düşür; burstiness'i kısa+uzun cümle karışımıyla yükselt.
+3. **Tell kataloğu (§4):** yığılı antitez (en büyük tell), üçleme, formülsel paragraf
+   kapanışı, şablon tez duyurusu, aforizma sonuç, tekdüze cümle, AI-kelimeleri,
+   em-dash, alıntı entegrasyonu, tekdüze geçişler.
+4. **Hedefli de-flag (§6):** dedektör bir cümleyi işaretlerse SADECE o cümleyi yeniden
+   yaz; geri kalanına dokunma.
+5. **Kaynak bütünlüğü (§8):** uydurma yok. Her atıf gerçek ve doğrulanmış olmalı;
+   kaynakları gövdeye iç atıf olarak işle, sadece kaynakçaya park etme.
+6. **Kontrollü kusur (§7):** çok az, gerçekçi, anlam bozmayan minör hatalar voice'u
+   doğallaştırır — sorumluluk notuyla.
+7. **Dur ve elle bitir:** son %1 garanti tek yolla gelir — insanın 2-3 cümleyi kendi
+   sesiyle düzenlemesi.
 
-## License
+## Dürüst uyarı
 
-The Unlicense (public domain). Do whatever you want with it. Attribution
-appreciated, not required.
+Hiçbir otomatik adım metni herhangi bir AI dedektöründen **geçer garanti** yapmaz —
+yoğun akademik düzyazı doğası gereği düşük-burstiness'tir ve insan yazsa bile flag
+yiyebilir. Dedektör skorları her iki yönde de kanıttır, ispat değil. Tek garantili
+humanization, bir insanın birkaç cümleyi kendi sesiyle düzenlemesidir. Rehber bunu
+defalarca, bilerek söyler.
+
+## Lisans
+
+The Unlicense (kamu malı). Ne istersen yap. Atıf makbule geçer, zorunlu değil.
