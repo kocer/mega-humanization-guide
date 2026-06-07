@@ -70,6 +70,7 @@ yiyebilir. Dedektör skorları her iki yönde de kanıttır, ispat değil. Tek g
 humanization, bir insanın birkaç cümleyi kendi sesiyle düzenlemesidir. Rehber bunu
 defalarca, bilerek söyler.
 
-## Lisans
+## License
 
-The Unlicense (kamu malı). Ne istersen yap. Atıf makbule geçer, zorunlu değil.
+The Unlicense (public domain). Do whatever you want with it. Attribution
+appreciated, not required.
