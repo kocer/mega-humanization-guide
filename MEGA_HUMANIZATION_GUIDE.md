@@ -219,6 +219,39 @@ Starting every paragraph/sentence with "Furthermore, Moreover, Additionally."
 - **Fix:** use the *reference's* connectives and vary them: in TR — "Üstelik",
   "Ne var ki", "Nitekim", "Kısacası", "Bununla birlikte", "Oysa", "Demek ki".
 
+### 4.13 Cross-document fingerprints (sibling essays on the same source)
+The strongest signal isn't always *inside* one essay. When several essays cover the
+**same primary text** — same class, same AI session, a friend's draft reused — they
+tend to share the **same quotes at the same page numbers**, the same roadmap
+sentence frame, and the same short bibliography. To one grader reading them back to
+back, two students "independently" picking the identical five quotations from the
+identical pages reads as collusion or a shared generator — louder than any §4 tell.
+
+- **Spot:** diff the quote sets and page numbers across sibling essays; diff the
+  thesis/roadmap skeleton ("Bu yazıda söz konusu X iki açıdan ele alınacaktır: …").
+- **Fix:** give each essay a *different* quote selection (other passages/pages of the
+  same book) and a *different* roadmap frame; never reuse the exact citation set.
+  This needs the primary text in hand — do **not** invent substitute quotes/pages
+  (§8). If you can't re-quote, at least re-frame the roadmap and lean on different
+  lines. Field note: two essays on *Of Mice and Men* both leaned on Steinbeck
+  17/18/77/15 under an identical "Bu yazıda söz konusu …" frame — flagged and split.
+
+### 4.14 Over-sophistication for the author's actual level
+Text that is *too good* for its writer is a tell — to detectors trained on level, and
+especially to a human grader who knows the student. A prep-year essay with a flawless
+academic thesis, a sociological lens and glassy argument structure can read as "above
+this student" even when every other §4 box is ticked.
+
+- **Spot:** would this writer, sitting down unaided, reach for this word or frame? If
+  "no", it's borrowed polish. Watch dense `hem … hem de … olarak işler` clauses,
+  elevated nouns (yazgı, olgu), and arguments tighter than the student's other work.
+- **Fix:** calibrate to the *author's* real level, not the genre ceiling (§2). Break
+  one or two over-built sentences into plainer ones, let a verb dip to everyday
+  register, but keep the thesis/structure the rubric demands. Close the gap between
+  the prose and the person; don't gut the analysis.
+  **Trade-off:** lowering register can cost rubric points for "high-level language",
+  while leaving it raises the above-level flag. Choose the side consciously per rubric.
+
 ---
 
 ## 5. Burstiness engineering (the concrete part)
@@ -340,6 +373,13 @@ Rules:
 - **Quotation marks:** Turkish typeset essays use curly “ ” — match the samples.
 - **Common natural minor-error sites** (see §7): dropped circumflex (hâli/hakim/kâr),
   de/da bitişik-ayrı, ki bağlacı, missing serial comma.
+- **Essay-ese fillers to thin (stock academic padding):** "söz konusu", "… olarak
+  resmedilir", "… özetler niteliktedir", "söz konusudur", "bu bağlamda". One or two
+  per essay is human; on every sentence it is register-AI. Prefer plain verbs
+  (gösterir, anlatır) and drop the "niteliktedir / söz konusu" scaffolding.
+- **Over-coloured idioms read as affected, not folksy.** Forcing "üç beş kuruş",
+  "yuva", "yollara düşürmek" to sound literary is its own inflated diction. Keep only
+  where it is genuinely the writer's voice; otherwise go plain (az para, ev).
 
 ### 9.2 English
 - Kill: delve, tapestry, multifaceted, underscore, testament, realm, navigate,
@@ -405,6 +445,10 @@ Run before declaring done. Every box must be ticked or consciously waived.
 - [ ] **AI-vocabulary swept** (§4.7 / §9 word lists).
 - [ ] **All citations real and verified**; sources used inline, not just listed.
 - [ ] **Primary-text quotes accurate**; page numbers flagged as edition-dependent.
+- [ ] **No cross-document fingerprint** (§4.13): sibling essays on the same source
+      don't share the identical quote set/pages or roadmap frame.
+- [ ] **Calibrated to the author's level** (§4.14): not glassier or more elevated than
+      the writer's own other work.
 - [ ] **(If used) minor errors are sparse, minor, realistic, non-meaning-changing.**
 - [ ] **Honest disclosure written:** detector scores are evidence not proof; a human
       hand-edit of 2-3 sentences is the only guaranteed humanization.
