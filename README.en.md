@@ -25,13 +25,23 @@ agnostic core plus a Turkish-specific appendix.
 - **[`humanizer_metrics.py`](humanizer_metrics.py)** — offline proxy metrics
   (sentence-length burstiness, coefficient of variation, type-token ratio). Does
   **not** measure perplexity — it's a structural smell-test, not a verdict.
+  Supports `--strip-quotes` (body-only measurement), `--baseline` (delta against
+  a human sample), `--json`.
+- **[`tell_scanner.py`](tell_scanner.py)** — automated first-pass audit of the §4
+  tell catalog (TR + EN, auto-detected): stacked antithesis, rule of three,
+  formulaic closings, templated thesis, aphorisms, AI vocabulary, hedging,
+  em-dashes, mechanical transitions, plus the §4.13 cross-document check via
+  `--siblings` (shared quotes/page citations). Heuristic, not a verdict — the
+  human audit decides.
 
 ## Quick start
 
-Measure a text and compare it against a real human sample from the same genre:
+Scan the draft, then measure it against a real human sample from the same genre:
 
 ```bash
-python3 humanizer_metrics.py target.txt --baseline human_sample.txt
+python3 tell_scanner.py draft.txt                                # §4 tell candidates
+python3 tell_scanner.py draft.txt --siblings classmate_essay.txt # §4.13 cross-document
+python3 humanizer_metrics.py draft.txt --baseline human_sample.txt --strip-quotes
 ```
 
 Then drive an AI through the loop in §3 of the guide, using §4 as hard rules and

@@ -11,12 +11,29 @@
 
 License: do whatever you want with it. Attribution appreciated, not required.
 
+**Contents:**
+[§0 How to use](#0-how-to-use-this-file) ·
+[§1 Two-axis model](#1-why-ai-text-is-detectable--the-two-axis-model) ·
+[§2 Voice calibration](#2-calibrate-to-a-real-human-voice-before-you-edit) ·
+[§3 Workflow loop](#3-the-workflow-loop) ·
+[§4 Tell catalog](#4-the-ai-tell-catalog--detect--fix) ·
+[§5 Burstiness](#5-burstiness-engineering-the-concrete-part) ·
+[§6 Targeted de-flagging](#6-targeted-de-flagging-when-a-detector-highlights-a-span) ·
+[§7 Controlled imperfection](#7-controlled-imperfection-the-minor-error-technique) ·
+[§8 Source integrity](#8-source--citation-integrity-non-negotiable) ·
+[§9 Language appendix](#9-language-specific-appendix) ·
+[§10 Drop-in AI block](#10-drop-in-instruction-block-for-an-ai) ·
+[§11 QA gate](#11-qa-gate--the-final-checklist) ·
+[§12 Change log](#12-appendix--full-beforeafter-change-log-from-the-source-session)
+
 ---
 
 ## 0. How to use this file
 
 **If you are a human:** read §1–§2 for the mental model, then drive an AI through
-the loop in §3. Use `humanizer_metrics.py` (ships alongside this file) to measure.
+the loop in §3. Two tools ship alongside this file: `humanizer_metrics.py` measures
+the burstiness axis (§5); `tell_scanner.py` does a first-pass automated audit of
+the §4 tell catalog (TR + EN, including the §4.13 cross-document check).
 
 **If you are an AI given this file:** treat §4 (the tell catalog) and §11 (the
 QA gate) as hard rules. Your job is to rewrite the supplied draft so it passes the
@@ -99,6 +116,11 @@ Generic "make it sound human" produces generic results. Anchor to samples.
 (7) QA GATE: run the checklist                          (§11)
 (8) Stop. Recommend a human hand-edit of 2-3 sentences (§1 golden rule)
 ```
+
+Step (3) can be bootstrapped: `python3 tell_scanner.py draft.txt` prints §4 tell
+candidates with sentence locations (add `--siblings other_essay.txt` for the §4.13
+cross-document check). It is a heuristic first pass, not a verdict — the human
+audit still decides what is a real tell and what is content-driven.
 
 Iterate (3)→(6) at most 2–3 times. Beyond that you hit diminishing returns and
 risk over-editing the text into something choppy and unnatural. Know when to stop.
@@ -269,6 +291,9 @@ Run the bundled measurer:
 ```
 python3 humanizer_metrics.py target.txt --baseline human_sample.txt
 ```
+
+Use `--strip-quotes` to measure the body only (quoted evidence excluded, as in the
+table below), and `--json` for machine-readable output.
 
 Real numbers from the session (essay body, quotes excluded):
 
@@ -443,6 +468,8 @@ Run before declaring done. Every box must be ticked or consciously waived.
       (measure; compare to a human baseline).
 - [ ] **Connectives & quote-intros rotated**, not repeated.
 - [ ] **AI-vocabulary swept** (§4.7 / §9 word lists).
+- [ ] **`tell_scanner.py` run clean** — no FLAG left unexplained (heuristic tool;
+      a consciously waived FLAG with a reason is fine).
 - [ ] **All citations real and verified**; sources used inline, not just listed.
 - [ ] **Primary-text quotes accurate**; page numbers flagged as edition-dependent.
 - [ ] **No cross-document fingerprint** (§4.13): sibling essays on the same source
