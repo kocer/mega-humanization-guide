@@ -29,13 +29,22 @@ de-flagging, kontrollü kusur ve kaynak bütünlüğü. Dilden bağımsız çeki
 - **[`humanizer_metrics.py`](humanizer_metrics.py)** — offline vekil metrikler
   (cümle uzunluğu burstiness'i, değişim katsayısı CV, tür-belirteç oranı TTR).
   Perplexity'yi **ölçmez** — yapısal bir koku testidir, kesin hüküm değil.
+  `--strip-quotes` (alıntılar hariç, sadece gövde), `--baseline` (insan örneğiyle
+  delta), `--json` destekler.
+- **[`tell_scanner.py`](tell_scanner.py)** — §4 tell kataloğunun otomatik ilk
+  taraması (TR + EN, otomatik dil tespiti): yığılı antitez, üçleme, formülsel
+  paragraf kapanışı, şablon tez, aforizma, AI-kelimeleri, hedging, em-dash,
+  tekdüze geçişler + `--siblings` ile §4.13 çapraz-doküman kontrolü (ortak
+  alıntı/sayfa tespiti). Sezgisel araçtır, hüküm değil — insan denetimi karar verir.
 
 ## Hızlı başlangıç
 
-Bir metni ölç ve aynı türden gerçek bir insan örneğiyle karşılaştır:
+Taslağı tara, sonra ölçüp gerçek bir insan örneğiyle karşılaştır:
 
 ```bash
-python3 humanizer_metrics.py hedef.txt --baseline insan_ornegi.txt
+python3 tell_scanner.py taslak.txt                                  # §4 tell adayları
+python3 tell_scanner.py taslak.txt --siblings arkadas_odevi.txt     # §4.13 çapraz kontrol
+python3 humanizer_metrics.py taslak.txt --baseline insan_ornegi.txt --strip-quotes
 ```
 
 Sonra rehberdeki §3 döngüsünü bir AI'ye uygulat: §4'ü katı kural, §11'i çıkış
