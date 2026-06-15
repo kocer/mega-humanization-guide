@@ -57,5 +57,4 @@ so repeatedly, on purpose.
 
 ## License
 
-The Unlicense (public domain). Do whatever you want with it. Attribution
-appreciated, not required.
+GPL-3.0 — see [`LICENSE`](LICENSE).
