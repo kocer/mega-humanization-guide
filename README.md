@@ -81,5 +81,5 @@ defalarca, bilerek söyler.
 
 ## License
 
-- Rehber / dokümanlar (`*.md`) — **CC-BY-NC-4.0** (ticari kullanım yok), bkz. [`LICENSE-docs`](LICENSE-docs)
+- Rehber / dokümanlar (`*.md`) — **CC-BY-SA-4.0** (atıf + aynı lisansla paylaş), bkz. [`LICENSE-docs`](LICENSE-docs)
 - Araçlar / kod (`*.py`) — **GPL-3.0**, bkz. [`LICENSE`](LICENSE)

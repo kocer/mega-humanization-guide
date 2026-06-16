@@ -57,5 +57,5 @@ so repeatedly, on purpose.
 
 ## License
 
-- Documentation (`*.md`) — **CC-BY-NC-4.0** (no commercial use), see [`LICENSE-docs`](LICENSE-docs)
+- Documentation (`*.md`) — **CC-BY-SA-4.0** (attribution + share-alike), see [`LICENSE-docs`](LICENSE-docs)
 - Code (`*.py`) — **GPL-3.0**, see [`LICENSE`](LICENSE)
