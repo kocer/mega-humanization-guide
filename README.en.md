@@ -57,4 +57,5 @@ so repeatedly, on purpose.
 
 ## License
 
-GPL-3.0 — see [`LICENSE`](LICENSE).
+- Documentation (`*.md`) — **CC-BY-NC-4.0** (no commercial use), see [`LICENSE-docs`](LICENSE-docs)
+- Code (`*.py`) — **GPL-3.0**, see [`LICENSE`](LICENSE)

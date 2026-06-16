@@ -81,4 +81,5 @@ defalarca, bilerek söyler.
 
 ## License
 
-GPL-3.0 — see [`LICENSE`](LICENSE).
+- Rehber / dokümanlar (`*.md`) — **CC-BY-NC-4.0** (ticari kullanım yok), bkz. [`LICENSE-docs`](LICENSE-docs)
+- Araçlar / kod (`*.py`) — **GPL-3.0**, bkz. [`LICENSE`](LICENSE)
